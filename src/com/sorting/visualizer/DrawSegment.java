@@ -18,9 +18,6 @@ public class DrawSegment extends JPanel {
           
     } 
 
-/*        
-        DrawSegments m1 = new DrawSegments();
-        JPanel p2 = m1;
-*/
+
     
 }

@@ -12,7 +12,7 @@ public class Sort implements Runnable{
 		t.start();
 	
 		
-	}
+	} 
 	 
 	
 	 
@@ -20,10 +20,13 @@ public class Sort implements Runnable{
 	
 	@Override
 	public void run() {
+		
+		SelectionSort.sort(SinusoidSegment.segments);
+		
+		/* Code to traverse
 		for(int i = 0; i < SinusoidSegment.numberOfSegments; i++) {
 			
 
-			
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -43,6 +46,7 @@ public class Sort implements Runnable{
 			
 			
 		}
+		*/
 		Window.isSorting = false;
 		
 	}

@@ -15,7 +15,7 @@ public class SinusoidSegment extends JPanel{
 	
 	public Color color = Color.BLACK;
 	public static int numberOfSegments = 0;
-	public static SinusoidSegment [] segments = new SinusoidSegment[13];
+	public static SinusoidSegment [] segments = new SinusoidSegment[13]; // *Contains all cycles/segments; data stored here is sorted*
 	public static int sineLength = 0;
     public int width, points;
     private double[] sines;
@@ -29,7 +29,7 @@ public class SinusoidSegment extends JPanel{
             sines[i] = Math.sin(radians);
         }
         Random r = new Random();
-        width = r.nextInt(30) + 50 ;
+        width = r.nextInt(40) + 51 ;
         sineLength += width;
     }
 
@@ -51,6 +51,7 @@ public class SinusoidSegment extends JPanel{
             g.drawLine(x1, y1, x2, y2);
             
         }
+        g.drawString("λ = " + width, width/2 - 5, 100);
    
     }
      

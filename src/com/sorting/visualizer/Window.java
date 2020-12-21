@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
+import javax.swing.JComboBox;
 
 public class Window implements ActionListener {
 
@@ -41,7 +42,7 @@ public class Window implements ActionListener {
 
 
 	private void initialize() {
-		frame = new JFrame("Sinusoid Segment Sorting Visualizer");
+		frame = new JFrame("Sinusoid Cycle Sorting Visualizer");
 		frame.setBounds(100, 100, 784, 273);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -68,17 +69,21 @@ public class Window implements ActionListener {
 		
 		
 		playAnimation.addActionListener(this);
-		playAnimation.setBounds(161, 27, 108, 23);
+		playAnimation.setBounds(410, 27, 108, 23);
 		panel.add(playAnimation);
 		
 		JButton btnClear = new JButton("Clear");
 		btnClear.addActionListener(this);
 		
-		btnClear.setBounds(286, 27, 108, 23);
+		btnClear.setBounds(161, 27, 108, 23);
 		panel.add(btnClear);
 		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(284, 27, 108, 23);
+		panel.add(comboBox);
+		
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(583, 145, 185, 23);
+		lblNewLabel_1.setBounds(571, 145, 185, 23);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		
@@ -102,7 +107,7 @@ public class Window implements ActionListener {
 			
 			
 			int wid = d1.seg.width;
-			panel_1.setBounds(totalLength, 35, wid, 100);
+			panel_1.setBounds(totalLength, 35, wid, 100); 
 			frame.getContentPane().add(panel_1);
 			frame.setVisible(true);
 		
@@ -120,7 +125,7 @@ public class Window implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("Add Cycle") && isSorting == false) {
 			if(SinusoidSegment.sineLength <= 700) { 
-				lblNewLabel_1.setText("Cycle with width size " + makeSegment() + " added.");
+				lblNewLabel_1.setText("Cycle with wavelength " + makeSegment() + " added.");
 			}
 			else {lblNewLabel_1.setText("Cannot add more cycles!");}
 			
@@ -144,7 +149,7 @@ public class Window implements ActionListener {
 		
 			
 			
-		
+		 
 		
 	}
 	
@@ -167,10 +172,4 @@ public class Window implements ActionListener {
     	SinusoidSegment.sineLength = 0; 
     
     }
-    
-	
-	
-	
-	
-
 }
