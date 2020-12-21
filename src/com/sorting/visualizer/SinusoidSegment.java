@@ -2,8 +2,10 @@ package com.sorting.visualizer;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ActionListener;
 import java.util.Random;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 
 
@@ -11,6 +13,9 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class SinusoidSegment extends JPanel{
 	
+	public Color color = Color.BLACK;
+	public static int numberOfSegments = 0;
+	public static SinusoidSegment [] segments = new SinusoidSegment[13];
 	public static int sineLength = 0;
     public int width, points;
     private double[] sines;
@@ -24,7 +29,7 @@ public class SinusoidSegment extends JPanel{
             sines[i] = Math.sin(radians);
         }
         Random r = new Random();
-        width = r.nextInt(25) + 50 ;
+        width = r.nextInt(30) + 50 ;
         sineLength += width;
     }
 
@@ -36,7 +41,7 @@ public class SinusoidSegment extends JPanel{
         pts = new int[points];
         for (int i = 0; i < points; i++)
             pts[i] = (int) (sines[i] * maxHeight / 2 * .95 + maxHeight / 2);
-        g.setColor(Color.BLACK);
+        g.setColor(color);
         
         for (int i = 1; i < points; i++) {
             int x1 = (int) ((i - 1) * hstep);
@@ -46,8 +51,17 @@ public class SinusoidSegment extends JPanel{
             g.drawLine(x1, y1, x2, y2);
             
         }
-        
+   
     }
-	
+     
+    
+    public void setColor(Color c) {
+    	this.color = c;
+    	
+    }
+    
+    
+  
+
 
 }

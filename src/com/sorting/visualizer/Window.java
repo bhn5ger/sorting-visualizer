@@ -1,37 +1,32 @@
 package com.sorting.visualizer;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
-import javax.swing.JButton;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.LineBorder;
-import java.awt.Color;
-import javax.swing.border.TitledBorder;
-import javax.swing.UIManager;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Window implements ActionListener {
 
-	private JFrame frame;
+	
+	public static JFrame frame;
+	public static JLabel lblNewLabel_1;
+	public static JPanel [] segmentPanels = new JPanel[13]; // store panels for future removal
+	public static boolean isSorting = false;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Window window = new Window();
-					window.frame.setVisible(true);
+					Window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -60,69 +55,122 @@ public class Window implements ActionListener {
 		
 		JButton btnNewButton = new JButton("Add Cycle");
 		btnNewButton.addActionListener(this);
-		btnNewButton.setBounds(347, 24, 108, 23);
+		btnNewButton.setBounds(39, 27, 108, 23);
 		panel.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("Control Panel");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel.setBounds(39, 11, 152, 14);
+		panel.add(lblNewLabel);
+		
+		JButton playAnimation = new JButton("Sort");
+		//playAnimation.setIcon(new ImageIcon("res/unnamed.png"));
+		
+		
+		playAnimation.addActionListener(this);
+		playAnimation.setBounds(161, 27, 108, 23);
+		panel.add(playAnimation);
+		
+		JButton btnClear = new JButton("Clear");
+		btnClear.addActionListener(this);
+		
+		btnClear.setBounds(286, 27, 108, 23);
+		panel.add(btnClear);
+		
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setBounds(583, 145, 185, 23);
+		frame.getContentPane().add(lblNewLabel_1);
 		
 		
 		frame.setResizable(false);
-		/*
-		int totalLength = 0;
-		for(int i = 0; i < 10; i++) {
-	
-			totalLength = SinusoidSegment.sineLength; 
-			DrawSegment d1 = new DrawSegment();
-			JPanel panel_1 = d1;
-			panel_1.setBounds(totalLength, 0, d1.seg.width, 140);
-			frame.getContentPane().add(panel_1);
-		}
-		
-		*/
-		//makeSegment();
+
 	}
 	
 
 	
 	
-	public void makeSegment() { 
+	public int makeSegment() { 
 		
-		int totalLength = 0;
-		
-	
+			int totalLength = 0; 
 			totalLength = SinusoidSegment.sineLength; 
 			DrawSegment d1 = new DrawSegment();
-			JPanel panel_1 = d1;
-			panel_1.setBounds(totalLength, 0, d1.seg.width, 140);
-			frame.getContentPane().add(panel_1);
+		
 		 
-		frame.setVisible(true);
-	}
+		 
+			JPanel panel_1 = d1;
+			segmentPanels[SinusoidSegment.numberOfSegments] = panel_1; // store panels for future removal
+			
+			
+			int wid = d1.seg.width;
+			panel_1.setBounds(totalLength, 35, wid, 100);
+			frame.getContentPane().add(panel_1);
+			frame.setVisible(true);
+		
+			SinusoidSegment.segments[SinusoidSegment.numberOfSegments] = d1.seg;
+			SinusoidSegment.numberOfSegments++;
+			return wid;
+		
 
+			
+  
+	} 
 
+ 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand().equals("Add Cycle")) {
-			makeSegment();
+		if(e.getActionCommand().equals("Add Cycle") && isSorting == false) {
+			if(SinusoidSegment.sineLength <= 700) { 
+				lblNewLabel_1.setText("Cycle with width size " + makeSegment() + " added.");
+			}
+			else {lblNewLabel_1.setText("Cannot add more cycles!");}
+			
+
+		}
+		
+		
+		
+		
+		if(e.getActionCommand().equals("Sort") && isSorting == false) {
+			Sort s = new Sort();
+			isSorting = true;
+		}
+		
+		
+		
+		if(e.getActionCommand().equals("Clear") && isSorting == false) {
+			clearSegments();
 			
 		}
 		
+			
+			
+		
+		
 	}
 	
+    public void clearSegments() {
+    	
+    	for (int i = 0; i < SinusoidSegment.segments.length; i++) {
+    		if(SinusoidSegment.numberOfSegments != 0) {
+				Window.frame.getContentPane().remove(Window.segmentPanels[i]);
+				  
+				Window.frame.revalidate(); 
+				Window.frame.repaint();
+    			Window.segmentPanels[i] = null; 
+    			SinusoidSegment.segments[i] = null;
+    			SinusoidSegment.numberOfSegments--;
+				 
+    		} 
+    	} 
+    	lblNewLabel_1.setText("Cleared!");
+    	SinusoidSegment.numberOfSegments = 0;
+    	SinusoidSegment.sineLength = 0; 
+    
+    }
+    
 	
-	 
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

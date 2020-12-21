@@ -15,8 +15,8 @@ public class DrawSegment extends JPanel {
       super(new BorderLayout());
         add(BorderLayout.CENTER,seg);
    
-        
-    }
+          
+    } 
 
 /*        
         DrawSegments m1 = new DrawSegments();
