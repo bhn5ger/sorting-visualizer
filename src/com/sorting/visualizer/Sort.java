@@ -6,8 +6,10 @@ import javax.swing.JLabel;
 
 public class Sort implements Runnable{
 
+	private String sortAlgo; 
 	
-	public Sort() {
+	public Sort(String sortAlgo) {
+		this.sortAlgo = sortAlgo;
 		Thread t = new Thread(this);
 		t.start();
 	
@@ -20,10 +22,12 @@ public class Sort implements Runnable{
 	
 	@Override
 	public void run() {
+		if(this.sortAlgo.equals("Selection Sort")) {
+			SelectionSort.sort(SinusoidSegment.segments);
+			displayLoadingCaption(3, "selection sort");
+		}
 		
-		SelectionSort.sort(SinusoidSegment.segments);	
 		clearColors(SinusoidSegment.numberOfSegments);
-		displayLoadingCaption(3);
 		Window.isSorting = false;
 		
 	}
@@ -40,11 +44,11 @@ public class Sort implements Runnable{
 	}
 	
 	
-	public static void displayLoadingCaption(int x) {
+	public static void displayLoadingCaption(int x, String sortAlgo) {
 		
-		if(x == 0) Window.lblNewLabel_1.setText("Sorting.");
-		else if (x == 1) Window.lblNewLabel_1.setText("Sorting.  .");
-		else if (x == 2) Window.lblNewLabel_1.setText("Sorting.  .  ."); 
+		if(x == 0) Window.lblNewLabel_1.setText("Sorting with " + sortAlgo + ".");
+		else if (x == 1) Window.lblNewLabel_1.setText("Sorting with " + sortAlgo + ".  .");
+		else if (x == 2) Window.lblNewLabel_1.setText("Sorting with " + sortAlgo + ".  .  ."); 
 		else Window.lblNewLabel_1.setText(""); 
 	
 		

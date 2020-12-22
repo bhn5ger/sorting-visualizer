@@ -15,6 +15,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.JComboBox;
 import javax.swing.border.MatteBorder;
 import javax.swing.JSlider;
+import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
 
 public class Window implements ActionListener {
 
@@ -45,8 +47,8 @@ public class Window implements ActionListener {
 
 
 	private void initialize() {
-		frame = new JFrame("Sinusoid Cycle Sorting Visualizer");
-		frame.setBounds(100, 100, 784, 274);
+		frame = new JFrame("Sorting Visualizer");
+		frame.setBounds(100, 100, 784, 275);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -64,8 +66,8 @@ public class Window implements ActionListener {
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Control Panel");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel.setBounds(39, 11, 152, 14);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel.setBounds(39, 8, 152, 14);
 		panel.add(lblNewLabel);
 		
 		JButton playAnimation = new JButton("Sort");
@@ -73,7 +75,7 @@ public class Window implements ActionListener {
 		
 		
 		playAnimation.addActionListener(this);
-		playAnimation.setBounds(410, 27, 108, 23);
+		playAnimation.setBounds(625, 27, 108, 23);
 		panel.add(playAnimation);
 		
 		JButton btnClear = new JButton("Clear");
@@ -93,12 +95,25 @@ public class Window implements ActionListener {
 		panel.add(comboBox);
 		
 		JSlider slider = new JSlider();
-		slider.setBounds(530, 27, 108, 23);
+		slider.setBorder(null);
+		slider.setBackground(UIManager.getColor("Button.background"));
+		slider.setBounds(507, 28, 108, 23);
 		panel.add(slider);
 		
+		JLabel lblNewLabel_2 = new JLabel("Animation Speed");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_2.setBounds(405, 29, 134, 19);
+		panel.add(lblNewLabel_2);
+		
 		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_1.setBounds(571, 145, 185, 23);
 		frame.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_3 = new JLabel("Wavelength Sorting Visualizer");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel_3.setBounds(22, 1, 245, 23);
+		frame.getContentPane().add(lblNewLabel_3);
 		
 		
 		frame.setResizable(false);
@@ -149,8 +164,8 @@ public class Window implements ActionListener {
 		
 		
 		
-		if(String.valueOf(comboBox.getSelectedItem()).equals("Selection Sort") && e.getActionCommand().equals("Sort") && isSorting == false) {
-			Sort s = new Sort();
+		if(e.getActionCommand().equals("Sort") && isSorting == false) {
+			Sort s = new Sort(String.valueOf(comboBox.getSelectedItem()));
 			isSorting = true;
 		}
 		

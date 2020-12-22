@@ -4,9 +4,10 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 
-public class SelectionSort {
+public class SelectionSort{
 	
 	public static Color darkGreen = new Color(0 , 153, 0);
+ 
 
     public static void sort(SinusoidSegment arr[]) 
     { 
@@ -34,8 +35,8 @@ public class SelectionSort {
             	
 			
 				try {
-					Sort.displayLoadingCaption(0);
-					Thread.sleep(500); 
+					Sort.displayLoadingCaption(0, "selection sort");
+					Thread.sleep(750); 
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -52,8 +53,8 @@ public class SelectionSort {
             	}
             	if(j == SinusoidSegment.numberOfSegments - 1) {
     				try {
-    					Sort.displayLoadingCaption(1);
-    					Thread.sleep(500);
+    					Sort.displayLoadingCaption(1, "selection sort");
+    					Thread.sleep(750);
     				} catch (InterruptedException e) {
     					e.printStackTrace();
     				}
@@ -108,8 +109,8 @@ public class SelectionSort {
                 
                 
     			try {
-    				Sort.displayLoadingCaption(2);
-    				Thread.sleep(500);
+    				Sort.displayLoadingCaption(2, "selection sort");
+    				Thread.sleep(750);
     			} catch (InterruptedException e) {
     				e.printStackTrace();
     			}
