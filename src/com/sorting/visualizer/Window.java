@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 import javax.swing.JComboBox;
+import javax.swing.border.MatteBorder;
+import javax.swing.JSlider;
 
 public class Window implements ActionListener {
 
@@ -21,6 +23,7 @@ public class Window implements ActionListener {
 	public static JLabel lblNewLabel_1;
 	public static JPanel [] segmentPanels = new JPanel[13]; // store panels for future removal
 	public static boolean isSorting = false;
+	public static JComboBox comboBox;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -43,12 +46,13 @@ public class Window implements ActionListener {
 
 	private void initialize() {
 		frame = new JFrame("Sinusoid Cycle Sorting Visualizer");
-		frame.setBounds(100, 100, 784, 273);
+		frame.setBounds(100, 100, 784, 274);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, new Color(0, 0, 0), null));
+		panel.setForeground(Color.BLACK);
+		panel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panel.setBounds(-15, 172, 793, 72);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null); 
@@ -78,9 +82,19 @@ public class Window implements ActionListener {
 		btnClear.setBounds(161, 27, 108, 23);
 		panel.add(btnClear);
 		
-		JComboBox comboBox = new JComboBox();
+		
+		
+		
+		
+		String [] sortOptions = {"Nothing", "Selection Sort"};
+		comboBox = new JComboBox(sortOptions);
+		comboBox.addActionListener(this);
 		comboBox.setBounds(284, 27, 108, 23);
 		panel.add(comboBox);
+		
+		JSlider slider = new JSlider();
+		slider.setBounds(530, 27, 108, 23);
+		panel.add(slider);
 		
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(571, 145, 185, 23);
@@ -135,7 +149,7 @@ public class Window implements ActionListener {
 		
 		
 		
-		if(e.getActionCommand().equals("Sort") && isSorting == false) {
+		if(String.valueOf(comboBox.getSelectedItem()).equals("Selection Sort") && e.getActionCommand().equals("Sort") && isSorting == false) {
 			Sort s = new Sort();
 			isSorting = true;
 		}

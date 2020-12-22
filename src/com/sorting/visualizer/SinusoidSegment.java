@@ -60,7 +60,10 @@ public class SinusoidSegment extends JPanel{
     	this.color = c;
     	
     }
-    
+    public Color getColor() {
+    	return this.color; 
+    	
+    }    
     
   
 
