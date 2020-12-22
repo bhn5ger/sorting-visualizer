@@ -25,6 +25,7 @@ public class SelectionSort{
         	
             // Find the minimum element in unsorted array 
             int min_idx = i; 
+           
           
             
             for (int j = i+1; j < n; j++) {
@@ -46,12 +47,12 @@ public class SelectionSort{
 				SinusoidSegment.segments[j].repaint();	
 		
             	 
-            	if(SinusoidSegment.segments[j-1].getColor() != darkGreen) { //Make previous index j back to black
+            	if(SinusoidSegment.segments[j-1].getColor() != darkGreen && j-1 != min_idx) { //Make previous index j back to black
     				SinusoidSegment.segments[j-1].setColor(Color.black);
     				SinusoidSegment.segments[j-1].repaint();
             		
             	}
-            	if(j == SinusoidSegment.numberOfSegments - 1) {
+            	if(j == SinusoidSegment.numberOfSegments - 1 && j != min_idx) {
     				try {
     					Sort.displayLoadingCaption(1, "selection sort");
     					Thread.sleep(750);
