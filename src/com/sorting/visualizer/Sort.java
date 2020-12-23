@@ -7,8 +7,10 @@ import javax.swing.JLabel;
 public class Sort implements Runnable{
 
 	private String sortAlgo; 
+	private int speed;
 	
-	public Sort(String sortAlgo) {
+	public Sort(String sortAlgo, int speed) {
+		this.speed = speed;
 		this.sortAlgo = sortAlgo;
 		Thread t = new Thread(this);
 		t.start();
@@ -23,6 +25,7 @@ public class Sort implements Runnable{
 	@Override
 	public void run() {
 		if(this.sortAlgo.equals("Selection Sort")) {
+			SelectionSort.speed = this.speed;
 			SelectionSort.sort(SinusoidSegment.segments);
 			displayLoadingCaption(3, "selection sort");
 		}

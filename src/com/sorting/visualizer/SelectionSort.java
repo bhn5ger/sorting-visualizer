@@ -7,8 +7,11 @@ import javax.swing.JPanel;
 public class SelectionSort{
 	
 	public static Color darkGreen = new Color(0 , 153, 0);
- 
+	public static int speed = 500;
 
+	
+	
+	
     public static void sort(SinusoidSegment arr[]) 
     { 
         int n = arr.length; 
@@ -37,7 +40,7 @@ public class SelectionSort{
 			
 				try {
 					Sort.displayLoadingCaption(0, "selection sort");
-					Thread.sleep(750); 
+					Thread.sleep(speed); 
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -55,7 +58,7 @@ public class SelectionSort{
             	if(j == SinusoidSegment.numberOfSegments - 1 && j != min_idx) {
     				try {
     					Sort.displayLoadingCaption(1, "selection sort");
-    					Thread.sleep(750);
+    					Thread.sleep(speed);
     				} catch (InterruptedException e) {
     					e.printStackTrace();
     				}
@@ -70,6 +73,7 @@ public class SelectionSort{
 
             		
             		if(SinusoidSegment.segments[min_idx].getColor() != darkGreen) { //Make previous minimum index back to black
+
                     	SinusoidSegment.segments[min_idx].setColor(Color.black);
         				SinusoidSegment.segments[min_idx].repaint();
             			
@@ -111,7 +115,7 @@ public class SelectionSort{
                 
     			try {
     				Sort.displayLoadingCaption(2, "selection sort");
-    				Thread.sleep(750);
+    				Thread.sleep(speed);
     			} catch (InterruptedException e) {
     				e.printStackTrace();
     			}
@@ -126,7 +130,7 @@ public class SelectionSort{
                 
                 
                 arr[min_idx] = arr[i]; 
-                Window.segmentPanels[min_idx].setBounds((int)Window.segmentPanels[i].getBounds().getX(), 35, (int)Window.segmentPanels[min_idx].getBounds().getWidth(), 100);
+                Window.segmentPanels[min_idx].setBounds((int)Window.segmentPanels[i].getBounds().getX(), Window.cycleYPos, (int)Window.segmentPanels[min_idx].getBounds().getWidth(), 100);
                 Window.segmentPanels[min_idx] = Window.segmentPanels[i];
                 
                 
@@ -140,7 +144,7 @@ public class SelectionSort{
                 	else if(Window.segmentPanels[k].getBounds().getX() > (int)Window.segmentPanels[i].getBounds().getX()
                 		&& Window.segmentPanels[k].getBounds().getX() < (int)temp2){
                 		
-                		Window.segmentPanels[k].setBounds((int)(Window.segmentPanels[k].getBounds().getX() - shift), 35, (int)Window.segmentPanels[k].getBounds().getWidth() ,100);
+                		Window.segmentPanels[k].setBounds((int)(Window.segmentPanels[k].getBounds().getX() - shift), Window.cycleYPos, (int)Window.segmentPanels[k].getBounds().getWidth() ,100);
                 		
                 		
                 		
@@ -152,7 +156,7 @@ public class SelectionSort{
                 
                 
                 arr[i] = temp; 
-                Window.segmentPanels[i].setBounds((int)(temp2 - shift), 35, (int)Window.segmentPanels[i].getBounds().getWidth(), 100);
+                Window.segmentPanels[i].setBounds((int)(temp2 - shift), Window.cycleYPos, (int)Window.segmentPanels[i].getBounds().getWidth(), 100);
                 Window.segmentPanels[i] = temp3;
          	
             }
@@ -166,7 +170,7 @@ public class SelectionSort{
       
     }  
 	
-	
+
     
     
 	
