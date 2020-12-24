@@ -29,7 +29,7 @@ public class Window implements ActionListener, ChangeListener{
 	
 	private static int speed = 600 - 300;
 	
-	public static int cycleYPos = 55;
+	public static int cycleYPos = 50;
 	
 
 	public static void main(String[] args) {
@@ -67,7 +67,7 @@ public class Window implements ActionListener, ChangeListener{
 		
 		JButton btnNewButton = new JButton("Add Cycle");
 		btnNewButton.addActionListener(this);
-		btnNewButton.setBounds(39, 27, 108, 23);
+		btnNewButton.setBounds(99, 27, 108, 23);
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Control Panel");
@@ -80,23 +80,23 @@ public class Window implements ActionListener, ChangeListener{
 		
 		
 		playAnimation.addActionListener(this);
-		playAnimation.setBounds(606, 27, 108, 23);
+		playAnimation.setBounds(663, 27, 108, 23);
 		panel.add(playAnimation);
 		
 		JButton btnClear = new JButton("Clear");
 		btnClear.addActionListener(this);
 		
-		btnClear.setBounds(157, 27, 108, 23);
+		btnClear.setBounds(217, 27, 108, 23);
 		panel.add(btnClear);
 		
 		
 		
 		
 		
-		String [] sortOptions = {"Select...", "Selection Sort"};
+		String [] sortOptions = {"Select...", "Selection Sort", "Insertion Sort"};
 		comboBox = new JComboBox(sortOptions);
 		comboBox.addActionListener(this);
-		comboBox.setBounds(275, 27, 108, 23);
+		comboBox.setBounds(335, 27, 108, 23);
 		panel.add(comboBox);
 		
 		slider = new JSlider();
@@ -107,16 +107,17 @@ public class Window implements ActionListener, ChangeListener{
 		slider.setValue(300);
 		
 		slider.setMinorTickSpacing(100);
-		slider.setPaintTicks(true);
+		//slider.setPaintTicks(true);
+		
 		slider.addChangeListener(this);
 		slider.setBorder(null);
 		slider.setBackground(UIManager.getColor("Button.background"));
-		slider.setBounds(488, 22, 108, 42);
+		slider.setBounds(548, 18, 108, 42);
 		panel.add(slider);
 		
 		JLabel lblNewLabel_2 = new JLabel("Animation Speed");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2.setBounds(393, 28, 134, 19);
+		lblNewLabel_2.setBounds(453, 28, 134, 19);
 		panel.add(lblNewLabel_2);
 		
 		lblNewLabel_1 = new JLabel("");
@@ -191,7 +192,6 @@ public class Window implements ActionListener, ChangeListener{
 			
 		}
 		
-		
 
 	}
 
@@ -229,7 +229,4 @@ public class Window implements ActionListener, ChangeListener{
     	SinusoidSegment.sineLength = 0; 
     
     }
-
-
-
 }

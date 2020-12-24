@@ -29,6 +29,13 @@ public class Sort implements Runnable{
 			SelectionSort.sort(SinusoidSegment.segments);
 			displayLoadingCaption(3, "selection sort");
 		}
+		if(this.sortAlgo.equals("Insertion Sort")) {
+			InsertionSort.speed = this.speed;
+			InsertionSort.sort(Window.segmentPanels);
+			displayLoadingCaption(3, "insertion sort");
+		}		
+
+		
 		
 		clearColors(SinusoidSegment.numberOfSegments);
 		Window.isSorting = false;
