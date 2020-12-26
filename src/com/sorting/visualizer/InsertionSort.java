@@ -13,7 +13,7 @@ public class InsertionSort {
     /*Function to sort array using insertion sort*/
     public static void sort(JPanel arr[]) 
     { 
-    	InsertionSort.speed = 1000;
+    
         int n = arr.length; //original
         for (int i = 1; i < n; ++i) { //original
         	if(arr[i] == null) break;
@@ -25,9 +25,9 @@ public class InsertionSort {
 				e.printStackTrace();
 			}
         	
-			SinusoidSegment.segments[i].setColor(darkGreen); //Highlight new index i green
+			SinusoidSegment.segments[i].setColor(Color.red); 
 			SinusoidSegment.segments[i].repaint();
-        	
+			
             JPanel key = arr[i]; //original
             SinusoidSegment key2 = SinusoidSegment.segments[i];
             
@@ -40,12 +40,26 @@ public class InsertionSort {
                 arr[j + 1] = arr[j]; //original
                 SinusoidSegment.segments[j+1] = SinusoidSegment.segments[j];
                 
+    			try {
+    				Sort.displayLoadingCaption(1, "insertion sort");
+    				Thread.sleep(speed); 
+    			} catch (InterruptedException e) {
+    				e.printStackTrace();
+    			}
+            	
+    			SinusoidSegment.segments[j].setColor(darkGreen); 
+    			SinusoidSegment.segments[j].repaint();
+    			            	
                 double shift = arr[j].getBounds().getWidth() - key.getBounds().getWidth();
                 double keyXPosTemp = key.getBounds().getX();
                 key.setBounds((int)arr[j].getBounds().getX(), Window.cycleYPos, (int)key.getBounds().getWidth() ,100);
                 arr[j].setBounds((int)(keyXPosTemp - shift), Window.cycleYPos, (int)arr[j].getBounds().getWidth() ,100);
                 
+
+                
                 j = j - 1; //original
+                
+                Sort.clearColors(i-1);
             } 
             arr[j + 1] = key; //original
             SinusoidSegment.segments[j+1] = key2;

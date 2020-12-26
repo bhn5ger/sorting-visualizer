@@ -34,7 +34,11 @@ public class Sort implements Runnable{
 			InsertionSort.sort(Window.segmentPanels);
 			displayLoadingCaption(3, "insertion sort");
 		}		
-
+		if(this.sortAlgo.equals("Bubble Sort")) {
+			BubbleSort.speed = this.speed;
+			BubbleSort.sort(Window.segmentPanels);
+			displayLoadingCaption(3, "bubble sort");
+		}
 		
 		
 		clearColors(SinusoidSegment.numberOfSegments);
