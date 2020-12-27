@@ -92,7 +92,7 @@ public class Window implements ActionListener, ChangeListener{
 		
 		
 		
-		String [] sortOptions = {"Select...", "Selection Sort", "Insertion Sort", "Bubble Sort"};
+		String [] sortOptions = {"Select...", "Selection Sort", "Insertion Sort", "Bubble Sort", "Merge Sort"};
 		comboBox = new JComboBox(sortOptions);
 		comboBox.setBackground(Color.LIGHT_GRAY);
 		comboBox.addActionListener(this);
@@ -203,7 +203,6 @@ public class Window implements ActionListener, ChangeListener{
 		
       	JSlider source = (JSlider)e.getSource();
       	speed = 600 - source.getValue();
-		System.out.println(speed);
 		
 	}
 	

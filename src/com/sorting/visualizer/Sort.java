@@ -39,6 +39,11 @@ public class Sort implements Runnable{
 			BubbleSort.sort(Window.segmentPanels);
 			displayLoadingCaption(3, "bubble sort");
 		}
+		if(this.sortAlgo.equals("Merge Sort")) {
+			MergeSort.speed = this.speed;
+			MergeSort.sort(Window.segmentPanels, 0, SinusoidSegment.numberOfSegments - 1);
+			displayLoadingCaption(3, "merge sort");
+		}
 		
 		
 		clearColors(SinusoidSegment.numberOfSegments);
