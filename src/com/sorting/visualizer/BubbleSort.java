@@ -11,10 +11,26 @@ public class BubbleSort {
 	public static void sort(JPanel arr[]) //original
 	    { 
 	        int n = arr.length; //original
-	        for (int i = 0; i < n-1; i++) //original
-	            for (int j = 0; j < n-i-1; j++) //original
+	        boolean swapped;
+	        for (int i = 0; i < n-1; i++) { //original
+	        	swapped = false;
+	            for (int j = 0; j < n-i-1; j++) { //original
 	            	if(arr[j+1] == null) break;
-	            	else if (arr[j].getBounds().getWidth() > arr[j+1].getBounds().getWidth()) //original
+        	
+					SinusoidSegment.segments[j+1].setColor(Color.red); // turn j+1 to red
+					SinusoidSegment.segments[j+1].repaint();
+					
+					try {
+						Sort.displayLoadingCaption(0, "bubble sort"); //delay
+						Thread.sleep(speed); 
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+		        	
+					SinusoidSegment.segments[j].setColor(Color.red); // turn j to red
+					SinusoidSegment.segments[j].repaint();
+					
+					if (arr[j].getBounds().getWidth() > arr[j+1].getBounds().getWidth()) //original
 	                { 
 	                    // swap arr[j+1] and arr[j] 
 	                    JPanel temp = arr[j]; //original
@@ -29,11 +45,57 @@ public class BubbleSort {
 	                    temp.setBounds((int)(temp3 - shift), Window.cycleYPos, (int)temp.getBounds().getWidth() ,100);	                    	                    	
 	                    arr[j+1] = temp;   //original
 	                    SinusoidSegment.segments[j+1] = temp2;
-	
+	                    
+	                    swapped = true;
 	                    
 	                }
+					
+					try {
+						Sort.displayLoadingCaption(1, "bubble sort"); //delay
+						Thread.sleep(speed); 
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					
+					SinusoidSegment.segments[j].setColor(Color.black); // turn j to black
+					SinusoidSegment.segments[j].repaint();
+					
+					try {
+						Sort.displayLoadingCaption(2, "bubble sort"); //delay
+						Thread.sleep(speed); 
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+		        	
+					SinusoidSegment.segments[j+1].setColor(Color.black); // turn j+1 to black
+					SinusoidSegment.segments[j+1].repaint();
+					
+	    		}
+	            
+	            if(swapped == false) break;
+	            
+	        
+	    	}
 	         
 	    } 
 	
+
+	
+	
+	
+	
 	
 }
+
+// Coloring pseudo code
+
+// j+1 turn red
+// delay
+// j turn red
+// swap
+// delay
+// j turn black
+// delay
+// j+1 turn black
+
+
