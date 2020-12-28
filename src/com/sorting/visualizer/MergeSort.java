@@ -26,10 +26,11 @@ public class MergeSort {
 		
 		try {
 			Sort.displayLoadingCaption(0, "merge sort"); 
-			Thread.sleep(speed + 200); 
+			Thread.sleep(speed); 
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		
 		
 		
         // Find sizes of two subarrays to be merged
@@ -44,15 +45,50 @@ public class MergeSort {
         SinusoidSegment R2[] = new SinusoidSegment[n2];
         
         /*Copy data to temp arrays*/
-        for (int i = 0; i < n1; ++i) {
-        	L[i] = arr[l + i];
+        for (int i = 0, j = 0; i < n1 || j < n2; ++i, j++) {
+        	if(i < n1) {
+            	L[i] = arr[l + i];
+            	
+            	L2[i] = SinusoidSegment.segments[l + i];
+        	}
         	
-        	L2[i] = SinusoidSegment.segments[l + i];
+        	if(i < n1 && SinusoidSegment.segments[l + i].getColor() == Color.black) {
+        		SinusoidSegment.segments[l + i].setColor(Color.red); 
+        		SinusoidSegment.segments[l + i].repaint();	
+        	}
+        	      	       	
+        	if(j < n2 && SinusoidSegment.segments[m + 1 + j].getColor() == Color.black) {
+        		SinusoidSegment.segments[m + 1 + j].setColor(Color.red); 
+        		SinusoidSegment.segments[m + 1 + j].repaint();
+        	}
+    		if(i < n1 && j < n2) {
+        		try {
+        			Sort.displayLoadingCaption(1, "merge sort"); 
+        			Thread.sleep(speed); 
+        		} catch (InterruptedException e) {
+        			e.printStackTrace();
+        		}	
+    			
+    		}
+    		
+    		if(i < n1 && SinusoidSegment.segments[l + i].getColor() == Color.red) {
+        		SinusoidSegment.segments[l + i].setColor(Color.black); 
+        		SinusoidSegment.segments[l + i].repaint();
+    		}
+    		
+    		if(j < n2 && SinusoidSegment.segments[m + 1 + j].getColor() == Color.red) {
+    			SinusoidSegment.segments[m + 1 + j].setColor(Color.black); 
+    			SinusoidSegment.segments[m + 1 + j].repaint();
+    		}
+
+    		
         }
         for (int j = 0; j < n2; ++j) {
         	R[j] = arr[m + 1 + j];
         	
         	R2[j] = SinusoidSegment.segments[m + 1 + j];
+    		
+
         }
  
         /* Merge the temp arrays */
@@ -117,10 +153,11 @@ public class MergeSort {
 		SinusoidSegment.segments[m].setColor(Color.black); 
 		SinusoidSegment.segments[m].repaint();
 		
-		//Sort.clearColors(r);
+		Sort.clearColors(r);
+	
 		try {
-			Sort.displayLoadingCaption(1, "merge sort"); //delay
-			Thread.sleep(speed + 200); 
+			Sort.displayLoadingCaption(2, "merge sort"); //delay
+			Thread.sleep(speed); 
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -141,8 +178,31 @@ public class MergeSort {
         		
         		// Merge the sorted halves
         		merge(arr, l, m, r);
+        		for(int i = l; i < r + 1; i++) {
+            		SinusoidSegment.segments[i].setColor(Color.red); 
+            		SinusoidSegment.segments[i].repaint();
+            		
+            		try {
+            			Sort.displayLoadingCaption(2, "merge sort"); //delay
+            			Thread.sleep(speed); 
+            		} catch (InterruptedException e) {
+            			e.printStackTrace();
+            		}
+            		
+            		SinusoidSegment.segments[i].setColor(Color.black); 
+            		SinusoidSegment.segments[i].repaint();
+        			
+        		}
         		
-        		Sort.clearColors(r);
+        		try {
+        			Sort.displayLoadingCaption(2, "merge sort"); //delay
+        			Thread.sleep(speed); 
+        		} catch (InterruptedException e) {
+        			e.printStackTrace();
+        		}
+        		
+        		
+        		
         	}
         	
         	
