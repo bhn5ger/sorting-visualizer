@@ -17,16 +17,19 @@ public class InsertionSort {
         int n = arr.length; //original
         for (int i = 1; i < n; ++i) { //original
         	if(arr[i] == null) break;
-
-			try {
-				Sort.displayLoadingCaption(0, "insertion sort");
-				Thread.sleep(speed); 
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
         	
-			Cycle.cycles[i].setColor(Color.red); 
-			Cycle.cycles[i].repaint();
+        	if(Cycle.cycles[i].getColor() != Color.green) {
+    			try {
+    				Sort.displayLoadingCaption(0, "insertion sort");
+    				Thread.sleep(speed); 
+    			} catch (InterruptedException e) {
+    				e.printStackTrace();
+    			}
+            	
+    			Cycle.cycles[i].setColor(Color.red); 
+    			Cycle.cycles[i].repaint();	        		         		
+        	}
+			
 			
             JPanel key = arr[i]; //original
             Cycle key2 = Cycle.cycles[i];
@@ -37,13 +40,26 @@ public class InsertionSort {
                greater than key, to one position ahead 
                of their current position */
             while (j >= 0 && arr[j].getBounds().getWidth() > key.getBounds().getWidth()) { //original
-            	           	
-
+            	
+            	if(Cycle.cycles[j].getColor() != Color.green) {
+        			try {
+        				Sort.displayLoadingCaption(1, "insertion sort");
+        				Thread.sleep(speed - 75); 
+        			} catch (InterruptedException e) {
+        				e.printStackTrace();
+        			}
+        		
+        			Cycle.cycles[j].setColor(Color.red); 
+        			Cycle.cycles[j].repaint();           		           		                 		
+            	}
+    			
             	arr[j + 1] = arr[j]; //original
                 Cycle.cycles[j+1] = Cycle.cycles[j];
                 
+                
+                
     			try {
-    				Sort.displayLoadingCaption(1, "insertion sort");
+    				Sort.displayLoadingCaption(2, "insertion sort");
     				Thread.sleep(speed); 
     			} catch (InterruptedException e) {
     				e.printStackTrace();
@@ -60,21 +76,19 @@ public class InsertionSort {
                 
                 j = j - 1; //original
                 
-                Sort.clearColors(i-1);
+        		for(int k = 0; k < i-1; k++) {
+        			if(Cycle.cycles[k].getColor() != Color.green) {
+            			Cycle.cycles[k].setColor(Color.black);
+            			Cycle.cycles[k].repaint();        				
+        			}        			
+        		}
+        		
+        		
+        		
             } 
             arr[j + 1] = key; //original
             Cycle.cycles[j+1] = key2;          
                     	            
-			try {
-				Sort.displayLoadingCaption(2, "insertion sort");
-				Thread.sleep(speed); 
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-            
-    		Cycle.cycles[j+1].setColor(Color.red); 
-    		Cycle.cycles[j+1].repaint();
-			
            
         }
         

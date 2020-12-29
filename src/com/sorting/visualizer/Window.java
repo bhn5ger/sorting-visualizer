@@ -54,7 +54,7 @@ public class Window implements ActionListener, ChangeListener{
 
 	private void initialize() {
 		frame = new JFrame("Sorting Visualizer");
-		frame.setBounds(100, 100, 864, 297);
+		frame.setBounds(525, 100, 864, 297);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
