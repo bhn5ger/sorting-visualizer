@@ -1,14 +1,12 @@
-# sortingVisualizer
+# Wavelength Sorting Visualizer
 
-# Control Panel #
+## Control Panel ##
 text
 
-# Selection Sort #
+## Selection Sort ##
 
+## Insertion Sort ##
 
-# Insertion Sort #
+## Bubble Sort ##
 
-
-# Bubble Sort #
-
-# Merge Sort #
+## Merge Sort ##
