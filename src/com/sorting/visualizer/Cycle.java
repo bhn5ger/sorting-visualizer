@@ -11,17 +11,17 @@ import javax.swing.Timer;
 
 
 @SuppressWarnings("serial")
-public class SinusoidSegment extends JPanel{
+public class Cycle extends JPanel{
 	
 	public Color color = Color.BLACK;
-	public static int numberOfSegments = 0;
-	public static SinusoidSegment [] segments = new SinusoidSegment[13]; // *Contains all cycles/segments; data stored here is sorted*
-	public static int sineLength = 0;
-    public int width, points;
+	public static int numberOfCycles = 0;
+	public static Cycle [] cycles = new Cycle[13]; // *Contains all cycles/segments; data stored here is sorted*
+	public static int totalWaveLength = 0;
+    public int cycleWaveLength, points;
     private double[] sines;
     private int[] pts; 
      
-    public SinusoidSegment() {
+    public Cycle() {
         points = 400; 
         sines = new double[points];
         for (int i = 0; i < points; i++) {
@@ -29,13 +29,13 @@ public class SinusoidSegment extends JPanel{
             sines[i] = Math.sin(radians);
         }
         Random r = new Random();
-        width = r.nextInt(40) + 51 ;
-        sineLength += width;
+        cycleWaveLength = r.nextInt(40) + 51 ;
+        totalWaveLength += cycleWaveLength;
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        int maxWidth = width; 
+        int maxWidth = cycleWaveLength; 
         double hstep = (double) maxWidth / (double) points;
         int maxHeight = getHeight(); 
         pts = new int[points];
@@ -51,7 +51,7 @@ public class SinusoidSegment extends JPanel{
             g.drawLine(x1, y1, x2, y2);
             
         }
-        g.drawString("λ = " + width, width/2 - 5, 100);
+        g.drawString("λ = " + cycleWaveLength, cycleWaveLength/2 - 5, 100);
    
     }
      

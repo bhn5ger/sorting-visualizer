@@ -13,14 +13,14 @@ public class MergeSort {
     // Second subarray is arr[m+1..r]
     static void merge(JPanel arr[], int l, int m, int r)
     {
-		SinusoidSegment.segments[m].setColor(Color.blue); 
-		SinusoidSegment.segments[m].repaint();
+		Cycle.cycles[m].setColor(Color.blue); 
+		Cycle.cycles[m].repaint();
     	
-		SinusoidSegment.segments[l].setColor(darkGreen); 
-		SinusoidSegment.segments[l].repaint();
+		Cycle.cycles[l].setColor(darkGreen); 
+		Cycle.cycles[l].repaint();
 		
-		SinusoidSegment.segments[r].setColor(darkGreen); 
-		SinusoidSegment.segments[r].repaint();
+		Cycle.cycles[r].setColor(darkGreen); 
+		Cycle.cycles[r].repaint();
 		
 
 		
@@ -41,25 +41,25 @@ public class MergeSort {
         JPanel L[] = new JPanel[n1];
         JPanel R[] = new JPanel[n2];
  
-        SinusoidSegment L2[] = new SinusoidSegment[n1];
-        SinusoidSegment R2[] = new SinusoidSegment[n2];
+        Cycle L2[] = new Cycle[n1];
+        Cycle R2[] = new Cycle[n2];
         
         /*Copy data to temp arrays*/
         for (int i = 0, j = 0; i < n1 || j < n2; ++i, j++) {
         	if(i < n1) {
             	L[i] = arr[l + i];
             	
-            	L2[i] = SinusoidSegment.segments[l + i];
+            	L2[i] = Cycle.cycles[l + i];
         	}
         	
-        	if(i < n1 && SinusoidSegment.segments[l + i].getColor() == Color.black) {
-        		SinusoidSegment.segments[l + i].setColor(Color.red); 
-        		SinusoidSegment.segments[l + i].repaint();	
+        	if(i < n1 && Cycle.cycles[l + i].getColor() == Color.black) {
+        		Cycle.cycles[l + i].setColor(Color.red); 
+        		Cycle.cycles[l + i].repaint();	
         	}
         	      	       	
-        	if(j < n2 && SinusoidSegment.segments[m + 1 + j].getColor() == Color.black) {
-        		SinusoidSegment.segments[m + 1 + j].setColor(Color.red); 
-        		SinusoidSegment.segments[m + 1 + j].repaint();
+        	if(j < n2 && Cycle.cycles[m + 1 + j].getColor() == Color.black) {
+        		Cycle.cycles[m + 1 + j].setColor(Color.red); 
+        		Cycle.cycles[m + 1 + j].repaint();
         	}
     		if(i < n1 && j < n2) {
         		try {
@@ -71,14 +71,14 @@ public class MergeSort {
     			
     		}
     		
-    		if(i < n1 && SinusoidSegment.segments[l + i].getColor() == Color.red) {
-        		SinusoidSegment.segments[l + i].setColor(Color.black); 
-        		SinusoidSegment.segments[l + i].repaint();
+    		if(i < n1 && Cycle.cycles[l + i].getColor() == Color.red) {
+        		Cycle.cycles[l + i].setColor(Color.black); 
+        		Cycle.cycles[l + i].repaint();
     		}
     		
-    		if(j < n2 && SinusoidSegment.segments[m + 1 + j].getColor() == Color.red) {
-    			SinusoidSegment.segments[m + 1 + j].setColor(Color.black); 
-    			SinusoidSegment.segments[m + 1 + j].repaint();
+    		if(j < n2 && Cycle.cycles[m + 1 + j].getColor() == Color.red) {
+    			Cycle.cycles[m + 1 + j].setColor(Color.black); 
+    			Cycle.cycles[m + 1 + j].repaint();
     		}
 
     		
@@ -86,7 +86,7 @@ public class MergeSort {
         for (int j = 0; j < n2; ++j) {
         	R[j] = arr[m + 1 + j];
         	
-        	R2[j] = SinusoidSegment.segments[m + 1 + j];
+        	R2[j] = Cycle.cycles[m + 1 + j];
     		
 
         }
@@ -103,7 +103,7 @@ public class MergeSort {
 
             if (L[i].getBounds().getWidth() <= R[j].getBounds().getWidth()) {
                 arr[k] = L[i];
-                SinusoidSegment.segments[k] = L2[i];
+                Cycle.cycles[k] = L2[i];
             	Window.segmentPanels[k].setBounds(totalLength, Window.cycleYPos, (int)arr[k].getBounds().getWidth(),100);
             	totalLength += (int)arr[k].getBounds().getWidth();
                 i++;
@@ -111,7 +111,7 @@ public class MergeSort {
             }
             else {
                 arr[k] = R[j];
-                SinusoidSegment.segments[k] = R2[j];
+                Cycle.cycles[k] = R2[j];
             	Window.segmentPanels[k].setBounds(totalLength, Window.cycleYPos, (int)arr[k].getBounds().getWidth(),100);
             	totalLength += (int)arr[k].getBounds().getWidth();
                 j++;
@@ -124,7 +124,7 @@ public class MergeSort {
         /* Copy remaining elements of L[] if any */
         while (i < n1) {
             arr[k] = L[i];
-            SinusoidSegment.segments[k] = L2[i];
+            Cycle.cycles[k] = L2[i];
         	Window.segmentPanels[k].setBounds(totalLength, Window.cycleYPos, (int)arr[k].getBounds().getWidth(),100);
         	totalLength += (int)arr[k].getBounds().getWidth();
             i++;
@@ -134,7 +134,7 @@ public class MergeSort {
         /* Copy remaining elements of R[] if any */
         while (j < n2) {
             arr[k] = R[j];
-            SinusoidSegment.segments[k] = R2[j];
+            Cycle.cycles[k] = R2[j];
         	Window.segmentPanels[k].setBounds(totalLength, Window.cycleYPos, (int)arr[k].getBounds().getWidth(),100);
         	totalLength += (int)arr[k].getBounds().getWidth();
             j++;
@@ -144,14 +144,14 @@ public class MergeSort {
         
         
 		
-		SinusoidSegment.segments[l].setColor(Color.black); 
-		SinusoidSegment.segments[l].repaint();
+		Cycle.cycles[l].setColor(Color.black); 
+		Cycle.cycles[l].repaint();
 		
-		SinusoidSegment.segments[r].setColor(Color.black); 
-		SinusoidSegment.segments[r].repaint();
+		Cycle.cycles[r].setColor(Color.black); 
+		Cycle.cycles[r].repaint();
 		
-		SinusoidSegment.segments[m].setColor(Color.black); 
-		SinusoidSegment.segments[m].repaint();
+		Cycle.cycles[m].setColor(Color.black); 
+		Cycle.cycles[m].repaint();
 		
 		Sort.clearColors(r);
 	
@@ -179,8 +179,8 @@ public class MergeSort {
         		// Merge the sorted halves
         		merge(arr, l, m, r);
         		for(int i = l; i < r + 1; i++) {
-            		SinusoidSegment.segments[i].setColor(Color.red); 
-            		SinusoidSegment.segments[i].repaint();
+            		Cycle.cycles[i].setColor(Color.red); 
+            		Cycle.cycles[i].repaint();
             		
             		try {
             			Sort.displayLoadingCaption(2, "merge sort"); //delay
@@ -189,8 +189,8 @@ public class MergeSort {
             			e.printStackTrace();
             		}
             		
-            		SinusoidSegment.segments[i].setColor(Color.black); 
-            		SinusoidSegment.segments[i].repaint();
+            		Cycle.cycles[i].setColor(Color.black); 
+            		Cycle.cycles[i].repaint();
         			
         		}
         		

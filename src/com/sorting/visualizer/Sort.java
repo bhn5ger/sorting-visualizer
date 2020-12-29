@@ -26,7 +26,7 @@ public class Sort implements Runnable{
 	public void run() {
 		if(this.sortAlgo.equals("Selection Sort")) {
 			SelectionSort.speed = this.speed;
-			SelectionSort.sort(SinusoidSegment.segments);
+			SelectionSort.sort(Cycle.cycles);
 			displayLoadingCaption(3, "selection sort");
 		}
 		if(this.sortAlgo.equals("Insertion Sort")) {
@@ -41,12 +41,12 @@ public class Sort implements Runnable{
 		}
 		if(this.sortAlgo.equals("Merge Sort")) {
 			MergeSort.speed = this.speed;
-			MergeSort.sort(Window.segmentPanels, 0, SinusoidSegment.numberOfSegments - 1);
+			MergeSort.sort(Window.segmentPanels, 0, Cycle.numberOfCycles - 1);
 			displayLoadingCaption(3, "merge sort");
 		}
 		
 		
-		clearColors(SinusoidSegment.numberOfSegments);
+		clearColors(Cycle.numberOfCycles);
 		Window.isSorting = false;
 		
 	}
@@ -55,8 +55,8 @@ public class Sort implements Runnable{
 	
 	public static void clearColors(int index){
 		for(int i = 0; i < index; i++) {
-			SinusoidSegment.segments[i].setColor(Color.black);
-			SinusoidSegment.segments[i].repaint();
+			Cycle.cycles[i].setColor(Color.black);
+			Cycle.cycles[i].repaint();
 
 			
 		}

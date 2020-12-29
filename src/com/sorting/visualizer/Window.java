@@ -141,22 +141,22 @@ public class Window implements ActionListener, ChangeListener{
 	public int makeSegment() { 
 		
 			int totalLength = 0; 
-			totalLength = SinusoidSegment.sineLength; 
-			DrawSegment d1 = new DrawSegment();
+			totalLength = Cycle.totalWaveLength; 
+			DrawCycle d1 = new DrawCycle();
 		
 		 
 		 
 			JPanel panel_1 = d1;
-			segmentPanels[SinusoidSegment.numberOfSegments] = panel_1; // store panels for future removal
+			segmentPanels[Cycle.numberOfCycles] = panel_1; // store panels for future removal
 			
 			
-			int wid = d1.seg.width;
+			int wid = d1.seg.cycleWaveLength;
 			panel_1.setBounds(totalLength, cycleYPos, wid, 100); 
 			frame.getContentPane().add(panel_1);
 			frame.setVisible(true);
 		
-			SinusoidSegment.segments[SinusoidSegment.numberOfSegments] = d1.seg;
-			SinusoidSegment.numberOfSegments++;
+			Cycle.cycles[Cycle.numberOfCycles] = d1.seg;
+			Cycle.numberOfCycles++;
 			return wid;
 		
 
@@ -169,7 +169,7 @@ public class Window implements ActionListener, ChangeListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getActionCommand().equals("Add Cycle") && isSorting == false) {
-			if(SinusoidSegment.sineLength <= 775) { 
+			if(Cycle.totalWaveLength <= 775) { 
 				lblNewLabel_1.setText("Cycle with wavelength " + makeSegment() + " added.");
 			}
 			else {lblNewLabel_1.setText("Cannot add more cycles!");}
@@ -211,21 +211,21 @@ public class Window implements ActionListener, ChangeListener{
 	
     public void clearSegments() {
     	
-    	for (int i = 0; i < SinusoidSegment.segments.length; i++) {
-    		if(SinusoidSegment.numberOfSegments != 0) {
+    	for (int i = 0; i < Cycle.cycles.length; i++) {
+    		if(Cycle.numberOfCycles != 0) {
 				Window.frame.getContentPane().remove(Window.segmentPanels[i]);
 				  
 				Window.frame.revalidate(); 
 				Window.frame.repaint();
     			Window.segmentPanels[i] = null; 
-    			SinusoidSegment.segments[i] = null;
-    			SinusoidSegment.numberOfSegments--;
+    			Cycle.cycles[i] = null;
+    			Cycle.numberOfCycles--;
 				 
     		} 
     	} 
     	lblNewLabel_1.setText("Cleared!");
-    	SinusoidSegment.numberOfSegments = 0;
-    	SinusoidSegment.sineLength = 0; 
+    	Cycle.numberOfCycles = 0;
+    	Cycle.totalWaveLength = 0; 
     
     }
 }

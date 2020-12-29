@@ -17,8 +17,8 @@ public class BubbleSort {
 	            for (int j = 0; j < n-i-1; j++) { //original
 	            	if(arr[j+1] == null) break;
         	
-					SinusoidSegment.segments[j+1].setColor(Color.red); // turn j+1 to red
-					SinusoidSegment.segments[j+1].repaint();
+					Cycle.cycles[j+1].setColor(Color.red); // turn j+1 to red
+					Cycle.cycles[j+1].repaint();
 					
 					try {
 						Sort.displayLoadingCaption(0, "bubble sort"); //delay
@@ -27,24 +27,24 @@ public class BubbleSort {
 						e.printStackTrace();
 					}
 		        	
-					SinusoidSegment.segments[j].setColor(Color.red); // turn j to red
-					SinusoidSegment.segments[j].repaint();
+					Cycle.cycles[j].setColor(Color.red); // turn j to red
+					Cycle.cycles[j].repaint();
 					
 					if (arr[j].getBounds().getWidth() > arr[j+1].getBounds().getWidth()) //original
 	                { 
 	                    // swap arr[j+1] and arr[j] 
 	                    JPanel temp = arr[j]; //original
-	                    SinusoidSegment temp2 = SinusoidSegment.segments[j];
+	                    Cycle temp2 = Cycle.cycles[j];
 	                    double temp3 = arr[j+1].getBounds().getX();
 	                 
 	                    arr[j+1].setBounds((int)arr[j].getBounds().getX(), Window.cycleYPos, (int)arr[j+1].getBounds().getWidth() ,100);	                    
 	                    arr[j] = arr[j+1]; //original
-	                    SinusoidSegment.segments[j] = SinusoidSegment.segments[j+1];	                    
+	                    Cycle.cycles[j] = Cycle.cycles[j+1];	                    
 	                    
 	                    double shift = temp.getBounds().getWidth() - arr[j+1].getBounds().getWidth();
 	                    temp.setBounds((int)(temp3 - shift), Window.cycleYPos, (int)temp.getBounds().getWidth() ,100);	                    	                    	
 	                    arr[j+1] = temp;   //original
-	                    SinusoidSegment.segments[j+1] = temp2;
+	                    Cycle.cycles[j+1] = temp2;
 	                    
 	                    swapped = true;
 	                    
@@ -57,8 +57,8 @@ public class BubbleSort {
 						e.printStackTrace();
 					}
 					
-					SinusoidSegment.segments[j].setColor(Color.black); // turn j to black
-					SinusoidSegment.segments[j].repaint();
+					Cycle.cycles[j].setColor(Color.black); // turn j to black
+					Cycle.cycles[j].repaint();
 					
 					try {
 						Sort.displayLoadingCaption(2, "bubble sort"); //delay
@@ -67,8 +67,8 @@ public class BubbleSort {
 						e.printStackTrace();
 					}
 		        	
-					SinusoidSegment.segments[j+1].setColor(Color.black); // turn j+1 to black
-					SinusoidSegment.segments[j+1].repaint();
+					Cycle.cycles[j+1].setColor(Color.black); // turn j+1 to black
+					Cycle.cycles[j+1].repaint();
 					
 	    		}
 	            

@@ -7,11 +7,11 @@ import java.awt.BorderLayout;
 
 
 @SuppressWarnings("serial")
-public class DrawSegment extends JPanel {
-    public SinusoidSegment seg = new SinusoidSegment(); 
+public class DrawCycle extends JPanel {
+    public Cycle seg = new Cycle(); 
   
 
-    public DrawSegment() { 
+    public DrawCycle() { 
       super(new BorderLayout());
         add(BorderLayout.CENTER,seg);
    

@@ -12,7 +12,7 @@ public class SelectionSort{
 	
 	
 	
-    public static void sort(SinusoidSegment arr[]) 
+    public static void sort(Cycle arr[]) 
     { 
         int n = arr.length; 
   
@@ -20,9 +20,9 @@ public class SelectionSort{
         for (int i = 0; i < n-1; i++) 
         { 	
 
-			if(SinusoidSegment.segments[i] != null) { //Highlight new index i green
-				SinusoidSegment.segments[i].setColor(darkGreen);
-				SinusoidSegment.segments[i].repaint();
+			if(Cycle.cycles[i] != null) { //Highlight new index i green
+				Cycle.cycles[i].setColor(darkGreen);
+				Cycle.cycles[i].repaint();
 			}
 
         	
@@ -46,36 +46,36 @@ public class SelectionSort{
 				}
 				
 				
-				SinusoidSegment.segments[j].setColor(Color.red); //Highlight new index j red
-				SinusoidSegment.segments[j].repaint();	
+				Cycle.cycles[j].setColor(Color.red); //Highlight new index j red
+				Cycle.cycles[j].repaint();	
 		
             	 
-            	if(SinusoidSegment.segments[j-1].getColor() != darkGreen && j-1 != min_idx) { //Make previous index j back to black
-    				SinusoidSegment.segments[j-1].setColor(Color.black);
-    				SinusoidSegment.segments[j-1].repaint();
+            	if(Cycle.cycles[j-1].getColor() != darkGreen && j-1 != min_idx) { //Make previous index j back to black
+    				Cycle.cycles[j-1].setColor(Color.black);
+    				Cycle.cycles[j-1].repaint();
             		
             	}
-            	if(j == SinusoidSegment.numberOfSegments - 1 && j != min_idx) {
+            	if(j == Cycle.numberOfCycles - 1 && j != min_idx) {
     				try {
     					Sort.displayLoadingCaption(1, "selection sort");
     					Thread.sleep(speed);
     				} catch (InterruptedException e) {
     					e.printStackTrace();
     				}
-            		SinusoidSegment.segments[j].setColor(Color.black);
-            		SinusoidSegment.segments[j].repaint();
+            		Cycle.cycles[j].setColor(Color.black);
+            		Cycle.cycles[j].repaint();
             	}
             	
 
             	
 
-            	if (arr[j].width < arr[min_idx].width){
+            	if (arr[j].cycleWaveLength < arr[min_idx].cycleWaveLength){
 
             		
-            		if(SinusoidSegment.segments[min_idx].getColor() != darkGreen) { //Make previous minimum index back to black
+            		if(Cycle.cycles[min_idx].getColor() != darkGreen) { //Make previous minimum index back to black
 
-                    	SinusoidSegment.segments[min_idx].setColor(Color.black);
-        				SinusoidSegment.segments[min_idx].repaint();
+                    	Cycle.cycles[min_idx].setColor(Color.black);
+        				Cycle.cycles[min_idx].repaint();
             			
             		}
 
@@ -90,8 +90,8 @@ public class SelectionSort{
 	
             	}	
             	if(min_idx > i) {
-                	SinusoidSegment.segments[min_idx].setColor(Color.red); //Highlight new minimum index
-    				SinusoidSegment.segments[min_idx].repaint();
+                	Cycle.cycles[min_idx].setColor(Color.red); //Highlight new minimum index
+    				Cycle.cycles[min_idx].repaint();
             		
             	}
             	
@@ -105,7 +105,7 @@ public class SelectionSort{
             
             
             if(Window.segmentPanels[min_idx] != null) {
-                SinusoidSegment temp = arr[min_idx]; 
+                Cycle temp = arr[min_idx]; 
                 double temp2 = Window.segmentPanels[min_idx].getBounds().getX();
                 JPanel temp3 = Window.segmentPanels[min_idx];
                 
@@ -120,8 +120,8 @@ public class SelectionSort{
     				e.printStackTrace();
     			}
                 
-    			SinusoidSegment.segments[i].setColor(Color.black); //Make previous index i back to black
-    			SinusoidSegment.segments[i].repaint();
+    			Cycle.cycles[i].setColor(Color.black); //Make previous index i back to black
+    			Cycle.cycles[i].repaint();
                 
                 
     			

@@ -25,11 +25,11 @@ public class InsertionSort {
 				e.printStackTrace();
 			}
         	
-			SinusoidSegment.segments[i].setColor(Color.red); 
-			SinusoidSegment.segments[i].repaint();
+			Cycle.cycles[i].setColor(Color.red); 
+			Cycle.cycles[i].repaint();
 			
             JPanel key = arr[i]; //original
-            SinusoidSegment key2 = SinusoidSegment.segments[i];
+            Cycle key2 = Cycle.cycles[i];
             
             int j = i - 1; //original
   
@@ -37,8 +37,10 @@ public class InsertionSort {
                greater than key, to one position ahead 
                of their current position */
             while (j >= 0 && arr[j].getBounds().getWidth() > key.getBounds().getWidth()) { //original
-                arr[j + 1] = arr[j]; //original
-                SinusoidSegment.segments[j+1] = SinusoidSegment.segments[j];
+            	           	
+
+            	arr[j + 1] = arr[j]; //original
+                Cycle.cycles[j+1] = Cycle.cycles[j];
                 
     			try {
     				Sort.displayLoadingCaption(1, "insertion sort");
@@ -47,22 +49,32 @@ public class InsertionSort {
     				e.printStackTrace();
     			}
             	
-    			SinusoidSegment.segments[j].setColor(darkGreen); 
-    			SinusoidSegment.segments[j].repaint();
+    			Cycle.cycles[j].setColor(darkGreen); 
+    			Cycle.cycles[j].repaint();
     			            	
                 double shift = arr[j].getBounds().getWidth() - key.getBounds().getWidth();
                 double keyXPosTemp = key.getBounds().getX();
                 key.setBounds((int)arr[j].getBounds().getX(), Window.cycleYPos, (int)key.getBounds().getWidth() ,100);
                 arr[j].setBounds((int)(keyXPosTemp - shift), Window.cycleYPos, (int)arr[j].getBounds().getWidth() ,100);
                 
-
                 
                 j = j - 1; //original
                 
                 Sort.clearColors(i-1);
             } 
             arr[j + 1] = key; //original
-            SinusoidSegment.segments[j+1] = key2;
+            Cycle.cycles[j+1] = key2;          
+                    	            
+			try {
+				Sort.displayLoadingCaption(2, "insertion sort");
+				Thread.sleep(speed); 
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+            
+    		Cycle.cycles[j+1].setColor(Color.red); 
+    		Cycle.cycles[j+1].repaint();
+			
            
         }
         
