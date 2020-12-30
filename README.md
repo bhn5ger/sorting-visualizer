@@ -9,7 +9,7 @@ The control panel is aligned horizontally at the bottom of the frame and contain
 ## Selection Sort ##
 Selection sort works by finding the smallest element in the unsorted sublist, swapping it with the leftmost unsorted element, and moving the sublist boundaries one element to the right. 
 
-As seen in the visualizer, the solid green represents the leftmost unsorted element to be swapped (if necessary), the solid red represents the smallest element in the unsorted sublist, and the flashing red represents traversal of the unsorted sublist.
+As seen in the visualizer, the solid green represents the leftmost unsorted element to be swapped (if necessary), the solid red represents the smallest element in the unsorted sublist, and the flashing red represents comparisons made during traversal of the unsorted sublist.
 
 ![selectionSort](https://user-images.githubusercontent.com/72827220/103316927-fde00980-49f7-11eb-9981-cd6e7d738789.gif)
 
