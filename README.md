@@ -17,5 +17,9 @@ Insertion sort works by splitting the array into a sorted and an unsorted part; 
 ![insertionSort](https://user-images.githubusercontent.com/72827220/103324732-c2086c80-4a16-11eb-8063-aaf7eaa58a0d.gif)
 
 ## Bubble Sort ##
+Bubble sort works by repeatedly swapping the adjacent elements if they are in wrong order. As seen in the visualizer, the flashing red represents the adjacent elements being compared and swapped (if necessary).
+
+![bubbleSort](https://user-images.githubusercontent.com/72827220/103325141-67701000-4a18-11eb-8b41-233314ac5098.gif)
 
 ## Merge Sort ##
+Merge sort works by
