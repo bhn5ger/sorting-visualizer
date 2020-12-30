@@ -22,4 +22,12 @@ Bubble sort works by repeatedly swapping the adjacent elements if they are in wr
 ![bubbleSort](https://user-images.githubusercontent.com/72827220/103325141-67701000-4a18-11eb-8b41-233314ac5098.gif)
 
 ## Merge Sort ##
-Merge sort works by
+Merge sort works by dividing the input array into two halves, calling itself for the two halves, and then merging the two sorted halves. Since this sorting algorithm is more complicated than the three above, the visualizer has three color animations: solid green, solid blue, and flashing red. The solid green represents the left and right elements of the subarrays during merging. The solid blue represents the middle element of the subarrays during merging. And finally, the flashing red represents elements from the subarrrays being compared during merging and also the resulting sorted array after merging the subarrays.
+
+![mergeSort](https://user-images.githubusercontent.com/72827220/103325938-17934800-4a1c-11eb-8500-a089d08cf9e3.gif)
+
+## To be implemented ##
+Heap sort, quick sort, radix sort, and more sorting algorithms are to be implemented. Additionally, a feature to increase the range of wavelengths generated (which is currently 51 to 90) to help differentiate cycles more visually is in progress.
+
+
+
