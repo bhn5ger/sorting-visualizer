@@ -34,6 +34,11 @@ Since this sorting algorithm is more complicated than the three above, the visua
 
 ![mergeSort](https://user-images.githubusercontent.com/72827220/103325938-17934800-4a1c-11eb-8500-a089d08cf9e3.gif)
 
+## Unit Testing ##
+To make sure sorting works properly (wavelengths are sorted in ascending order), JUnit tests were written for each sorting algorithm. As seen below, each algorithm implementation worked as intended.
+
+![tests](https://user-images.githubusercontent.com/72827220/103370918-19045500-4a9c-11eb-8483-9ba026d1913f.gif)
+
 ## To be implemented ##
 Heap sort, quick sort, radix sort, and more sorting algorithms are to be implemented. Additionally, a feature to increase the range of wavelengths generated (which is currently 51 to 90) to help differentiate cycles more visually is in progress.
 
