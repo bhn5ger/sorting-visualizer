@@ -43,4 +43,11 @@ To make sure sorting works properly (wavelengths are sorted in ascending order),
 Heap sort, quick sort, radix sort, and more sorting algorithms are to be implemented. Additionally, a feature to increase the range of wavelengths generated (which is currently 51 to 90) to help differentiate cycles more visually is in progress.
 
 
+
+
+
+
+
+
+
 © 2020 Brian Nguyen
