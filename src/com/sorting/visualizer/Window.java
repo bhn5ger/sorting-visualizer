@@ -28,7 +28,7 @@ public class Window implements ActionListener, ChangeListener{
 	public static JComboBox comboBox;
 	public static JSlider slider;
 	
-	private static int speed = 600 - 300;
+	public static int speed = 600 - 300;
 	
 	public static int cycleYPos = 50;
 	

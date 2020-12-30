@@ -16,7 +16,7 @@ public class WindowTest {
 		assertFalse(x > 90);
 		//Ensure the sum of the wavelengths of the cycles is never greater than the length of the frame
 		int totalWaveLengthCount = 0;
-		for(int i = 0; i < 100000; i++) { //Simulate adding a cycle to the frame
+		for(int i = 0; i < 100000; i++) { //Simulate adding cycles to the frame, testing if <= 775 is a valid condition to keep the total wave length count <= 864
 			if(totalWaveLengthCount <= 775) {
 				totalWaveLengthCount += window.makeSegment();
 			}else break;
