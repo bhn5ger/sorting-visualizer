@@ -14,7 +14,8 @@ As seen in the visualizer, the solid green represents the leftmost unsorted elem
 ![selectionSort](https://user-images.githubusercontent.com/72827220/103316927-fde00980-49f7-11eb-9981-cd6e7d738789.gif)
 
 ## Insertion Sort ##
-Insertion sort works by splitting the array into a sorted and an unsorted part; values from the unsorted part are picked and placed at the correct position in the sorted part.     
+Insertion sort works by splitting the array into a sorted and an unsorted part; values from the unsorted part are picked and placed at the correct position in the sorted part. 
+
 As seen in the visualizer, the solid green represents the last element (i.e. the greatest element, since it is sorted in ascending order) of the sorted part while the flashing red represents values from the unsorted part being compared and swapped into the correct position in the sorted part.
 
 ![insertionSort](https://user-images.githubusercontent.com/72827220/103324732-c2086c80-4a16-11eb-8063-aaf7eaa58a0d.gif)
