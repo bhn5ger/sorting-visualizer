@@ -35,7 +35,7 @@ Merge sort works by dividing the input array into two halves, calling itself for
 Since this sorting algorithm is more complicated than the three above, the visualizer has three color animations: solid green, solid blue, and flashing red. The solid green represents the left and right elements of the subarrays during merging. The solid blue represents the middle element of the subarrays during merging. And finally, the flashing red represents elements from the subarrrays being compared during merging and also the resulting sorted array after merging the subarrays.
 
 ## Unit Testing ##
-To make sure sorting works properly (wavelengths are sorted in ascending order), JUnit tests were written for each sorting algorithm. As seen below, each algorithm implementation worked as intended.
+To make sure sorting works properly (wavelengths are sorted in ascending order), JUnit tests were written for each sorting algorithm. As seen below, each algorithm implementation worked as expected.
 
 ![tests](https://user-images.githubusercontent.com/72827220/103370918-19045500-4a9c-11eb-8483-9ba026d1913f.gif)
 
