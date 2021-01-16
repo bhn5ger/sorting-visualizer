@@ -52,6 +52,17 @@ public class Cycle extends JPanel{
             
         }
         g.drawString("λ = " + cycleWaveLength, cycleWaveLength/2 - 5, 100);
+       
+        g.drawLine(0,maxHeight/2,cycleWaveLength,maxHeight/2);
+        g.drawLine(cycleWaveLength/2, maxHeight/4,cycleWaveLength/2, (maxHeight / 4) * 3);
+        
+        int spacingFactor = cycleWaveLength/7;
+        g.setColor(new Color(240,240,240));
+        g.drawLine(0,maxHeight/2,spacingFactor,maxHeight/2);
+        g.drawLine(spacingFactor * 2,maxHeight/2, spacingFactor * 3,maxHeight/2);
+        g.drawLine(spacingFactor * 4,maxHeight/2, spacingFactor * 5,maxHeight/2);
+        g.drawLine(spacingFactor * 6,maxHeight/2, spacingFactor * 7,maxHeight/2);
+        g.setColor(color);
    
     }
      
