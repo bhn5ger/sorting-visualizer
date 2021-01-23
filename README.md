@@ -1,5 +1,7 @@
 # Wavelength Sorting Visualizer by Brian N.
-This is a unique application is for visualizing sorting algorithms; it sorts cycles of a wave from least to greatest wavelength until the wave looks like a spring stretched from one end. Traversal, comparison, and swapping of the cycles of the wave are animated during real time sorting using colors and threads. To use it yourself, download it [here](https://drive.google.com/uc?id=1LLblZcjqLiA1N0F-BB0DEEGDy8JPzbXU&export=download).
+This is a unique application is for visualizing sorting algorithms; it sorts cycles of a wave from least to greatest wavelength until the wave looks like a spring stretched from one end. Traversal, comparison, and swapping of the cycles of the wave are animated during real time sorting using colors and threads. To use it yourself, 
+
+[![button](https://user-images.githubusercontent.com/72827220/105613682-168ed580-5d92-11eb-9950-17b6c423c19b.png)](https://drive.google.com/uc?id=1LLblZcjqLiA1N0F-BB0DEEGDy8JPzbXU&export=download)
 
 
 ## Control Panel ##
