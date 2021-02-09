@@ -15,7 +15,7 @@ public class Cycle extends JPanel{
 	
 	public Color color = Color.white;
 	public static int numberOfCycles = 0;
-	public static Cycle [] cycles = new Cycle[13]; // *Contains all cycles/segments; data stored here is sorted*
+	public static Cycle [] cycles = new Cycle[14]; // *Contains all cycles/segments; data stored here is sorted*
 	public static int totalWaveLength = 0;
     public int cycleWaveLength, points;
     private double[] sines;

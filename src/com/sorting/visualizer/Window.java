@@ -24,7 +24,7 @@ public class Window implements ActionListener, ChangeListener{
 	
 	public static JFrame frame;
 	public static JLabel lblNewLabel_1;
-	public static JPanel [] segmentPanels = new JPanel[13]; // store panels for future removal
+	public static JPanel [] segmentPanels = new JPanel[14]; // store panels for future removal
 	public static boolean isSorting = false;
 	public static JComboBox comboBox;
 	public static JSlider slider;
@@ -57,7 +57,7 @@ public class Window implements ActionListener, ChangeListener{
 		frame = new JFrame("Sorting Visualizer");
 		frame.getContentPane().setBackground(Color.BLACK);
 		frame.getContentPane().setForeground(Color.BLACK);
-		frame.setBounds(525, 100, 875, 319);
+		frame.setBounds(525, 100, 975, 319);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -65,7 +65,7 @@ public class Window implements ActionListener, ChangeListener{
 		panel.setBackground(Color.BLACK);
 		panel.setForeground(Color.BLACK);
 		panel.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)), "Control Panel", TitledBorder.LEFT, TitledBorder.TOP, null, Color.WHITE));
-		panel.setBounds(15, 196, 827, 73);
+		panel.setBounds(20, 190, 918, 73);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null); 
 		
@@ -74,8 +74,15 @@ public class Window implements ActionListener, ChangeListener{
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBackground(Color.DARK_GRAY);
 		btnNewButton.addActionListener(this);
-		btnNewButton.setBounds(77, 27, 108, 23);
+		btnNewButton.setBounds(189, 29, 108, 23);
 		panel.add(btnNewButton);
+		
+		JButton generateWave = new JButton("Generate Wave");
+		generateWave.setForeground(Color.WHITE);
+		generateWave.setBackground(Color.DARK_GRAY);
+		generateWave.addActionListener(this);
+		generateWave.setBounds(51, 29, 128, 23);
+		panel.add(generateWave);
 		
 		JButton playAnimation = new JButton("Sort");
 		playAnimation.setForeground(Color.WHITE);
@@ -84,7 +91,7 @@ public class Window implements ActionListener, ChangeListener{
 		
 		
 		playAnimation.addActionListener(this);
-		playAnimation.setBounds(641, 27, 108, 23);
+		playAnimation.setBounds(753, 29, 108, 23);
 		panel.add(playAnimation);
 		
 		JButton btnClear = new JButton("Clear");
@@ -92,7 +99,7 @@ public class Window implements ActionListener, ChangeListener{
 		btnClear.setBackground(Color.DARK_GRAY);
 		btnClear.addActionListener(this);
 		
-		btnClear.setBounds(195, 27, 108, 23);
+		btnClear.setBounds(307, 29, 108, 23);
 		panel.add(btnClear);
 		
 		
@@ -104,7 +111,7 @@ public class Window implements ActionListener, ChangeListener{
 		comboBox.setForeground(Color.WHITE);
 		comboBox.setBackground(Color.DARK_GRAY);
 		comboBox.addActionListener(this);
-		comboBox.setBounds(313, 27, 108, 23);
+		comboBox.setBounds(425, 29, 108, 23);
 		panel.add(comboBox);
 		
 		slider = new JSlider();
@@ -120,19 +127,19 @@ public class Window implements ActionListener, ChangeListener{
 		slider.addChangeListener(this);
 		slider.setBorder(null);
 		slider.setBackground(Color.BLACK);
-		slider.setBounds(526, 18, 108, 42);
+		slider.setBounds(638, 20, 108, 42);
 		panel.add(slider);
 		
 		JLabel lblNewLabel_2 = new JLabel("Animation Speed");
 		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2.setBounds(431, 28, 134, 19);
+		lblNewLabel_2.setBounds(543, 30, 134, 19);
 		panel.add(lblNewLabel_2);
 		
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_1.setBounds(650, 175, 185, 23);
+		lblNewLabel_1.setBounds(750, 165, 185, 23);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_3 = new JLabel("Wavelength Sorting Visualizer");
@@ -180,25 +187,23 @@ public class Window implements ActionListener, ChangeListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
+		if(e.getActionCommand().equals("Generate Wave") && isSorting == false) {
+			clearSegments();
+			while(Cycle.totalWaveLength <= 845) { 
+				makeSegment();
+			}
+			lblNewLabel_1.setText("Wave generated!");
+		}
 		if(e.getActionCommand().equals("Add Cycle") && isSorting == false) {
-			if(Cycle.totalWaveLength <= 775) { 
+			if(Cycle.totalWaveLength <= 845) { 
 				lblNewLabel_1.setText("Cycle with wavelength " + makeSegment() + " added.");
 			}
 			else {lblNewLabel_1.setText("Cannot add more cycles!");}
-			
-
-		}
-		
-		
-		
-		
+		}		
 		if(e.getActionCommand().equals("Sort") && isSorting == false) {
 			Sort s = new Sort(String.valueOf(comboBox.getSelectedItem()), speed);
 			isSorting = true;
 		}
-		
-		
-		
 		if(e.getActionCommand().equals("Clear") && isSorting == false) {
 			clearSegments();
 			
