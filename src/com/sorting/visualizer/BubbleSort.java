@@ -57,7 +57,7 @@ public class BubbleSort {
 						e.printStackTrace();
 					}
 					
-					Cycle.cycles[j].setColor(Color.black); // turn j to black
+					Cycle.cycles[j].setColor(Color.white); // turn j to black
 					Cycle.cycles[j].repaint();
 					
 					try {
@@ -67,7 +67,7 @@ public class BubbleSort {
 						e.printStackTrace();
 					}
 		        	
-					Cycle.cycles[j+1].setColor(Color.black); // turn j+1 to black
+					Cycle.cycles[j+1].setColor(Color.white); // turn j+1 to black
 					Cycle.cycles[j+1].repaint();
 					
 	    		}

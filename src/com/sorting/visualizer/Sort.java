@@ -55,7 +55,7 @@ public class Sort implements Runnable{
 	
 	public static void clearColors(int index){
 		for(int i = 0; i < index; i++) {
-			Cycle.cycles[i].setColor(Color.black);
+			Cycle.cycles[i].setColor(Color.white);
 			Cycle.cycles[i].repaint();
 
 			

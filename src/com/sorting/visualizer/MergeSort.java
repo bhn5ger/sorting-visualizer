@@ -52,12 +52,12 @@ public class MergeSort {
             	L2[i] = Cycle.cycles[l + i];
         	}
         	
-        	if(i < n1 && Cycle.cycles[l + i].getColor() == Color.black) {
+        	if(i < n1 && Cycle.cycles[l + i].getColor() == Color.white) {
         		Cycle.cycles[l + i].setColor(Color.red); 
         		Cycle.cycles[l + i].repaint();	
         	}
         	      	       	
-        	if(j < n2 && Cycle.cycles[m + 1 + j].getColor() == Color.black) {
+        	if(j < n2 && Cycle.cycles[m + 1 + j].getColor() == Color.white) {
         		Cycle.cycles[m + 1 + j].setColor(Color.red); 
         		Cycle.cycles[m + 1 + j].repaint();
         	}
@@ -72,12 +72,12 @@ public class MergeSort {
     		}
     		
     		if(i < n1 && Cycle.cycles[l + i].getColor() == Color.red) {
-        		Cycle.cycles[l + i].setColor(Color.black); 
+        		Cycle.cycles[l + i].setColor(Color.white); 
         		Cycle.cycles[l + i].repaint();
     		}
     		
     		if(j < n2 && Cycle.cycles[m + 1 + j].getColor() == Color.red) {
-    			Cycle.cycles[m + 1 + j].setColor(Color.black); 
+    			Cycle.cycles[m + 1 + j].setColor(Color.white); 
     			Cycle.cycles[m + 1 + j].repaint();
     		}
 
@@ -144,13 +144,13 @@ public class MergeSort {
         
         
 		
-		Cycle.cycles[l].setColor(Color.black); 
+		Cycle.cycles[l].setColor(Color.white); 
 		Cycle.cycles[l].repaint();
 		
-		Cycle.cycles[r].setColor(Color.black); 
+		Cycle.cycles[r].setColor(Color.white); 
 		Cycle.cycles[r].repaint();
 		
-		Cycle.cycles[m].setColor(Color.black); 
+		Cycle.cycles[m].setColor(Color.white); 
 		Cycle.cycles[m].repaint();
 		
 		Sort.clearColors(r);
@@ -189,7 +189,7 @@ public class MergeSort {
             			e.printStackTrace();
             		}
             		
-            		Cycle.cycles[i].setColor(Color.black); 
+            		Cycle.cycles[i].setColor(Color.white); 
             		Cycle.cycles[i].repaint();
         			
         		}

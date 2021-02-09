@@ -50,8 +50,8 @@ public class SelectionSort{
 				Cycle.cycles[j].repaint();	
 		
             	 
-            	if(Cycle.cycles[j-1].getColor() != darkGreen && j-1 != min_idx) { //Make previous index j back to black
-    				Cycle.cycles[j-1].setColor(Color.black);
+            	if(Cycle.cycles[j-1].getColor() != darkGreen && j-1 != min_idx) { //Make previous index j back to white
+    				Cycle.cycles[j-1].setColor(Color.white);
     				Cycle.cycles[j-1].repaint();
             		
             	}
@@ -62,7 +62,7 @@ public class SelectionSort{
     				} catch (InterruptedException e) {
     					e.printStackTrace();
     				}
-            		Cycle.cycles[j].setColor(Color.black);
+            		Cycle.cycles[j].setColor(Color.white);
             		Cycle.cycles[j].repaint();
             	}
             	
@@ -72,9 +72,9 @@ public class SelectionSort{
             	if (arr[j].cycleWaveLength < arr[min_idx].cycleWaveLength){
 
             		
-            		if(Cycle.cycles[min_idx].getColor() != darkGreen) { //Make previous minimum index back to black
+            		if(Cycle.cycles[min_idx].getColor() != darkGreen) { //Make previous minimum index back to white
 
-                    	Cycle.cycles[min_idx].setColor(Color.black);
+                    	Cycle.cycles[min_idx].setColor(Color.white);
         				Cycle.cycles[min_idx].repaint();
             			
             		}
@@ -95,7 +95,7 @@ public class SelectionSort{
             		
             	}
             	
-            	Sort.clearColors(i); // make all the cycles behind cycle index i black
+            	Sort.clearColors(i); // make all the cycles behind cycle index i white
             // Swap the found minimum element with the first 
             // element
             	
@@ -120,7 +120,7 @@ public class SelectionSort{
     				e.printStackTrace();
     			}
                 
-    			Cycle.cycles[i].setColor(Color.black); //Make previous index i back to black
+    			Cycle.cycles[i].setColor(Color.white); //Make previous index i back to white
     			Cycle.cycles[i].repaint();
                 
                 

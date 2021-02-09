@@ -55,26 +55,31 @@ public class Window implements ActionListener, ChangeListener{
 
 	private void initialize() {
 		frame = new JFrame("Sorting Visualizer");
+		frame.getContentPane().setBackground(Color.BLACK);
+		frame.getContentPane().setForeground(Color.BLACK);
 		frame.setBounds(525, 100, 875, 319);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.BLACK);
 		panel.setForeground(Color.BLACK);
-		panel.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)), "Control Panel", TitledBorder.LEFT, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)), "Control Panel", TitledBorder.LEFT, TitledBorder.TOP, null, Color.WHITE));
 		panel.setBounds(15, 196, 827, 73);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null); 
 		
 		
 		JButton btnNewButton = new JButton("Add Cycle");
-		btnNewButton.setBackground(Color.LIGHT_GRAY);
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(Color.DARK_GRAY);
 		btnNewButton.addActionListener(this);
 		btnNewButton.setBounds(77, 27, 108, 23);
 		panel.add(btnNewButton);
 		
 		JButton playAnimation = new JButton("Sort");
-		playAnimation.setBackground(Color.LIGHT_GRAY);
+		playAnimation.setForeground(Color.WHITE);
+		playAnimation.setBackground(Color.DARK_GRAY);
 		//playAnimation.setIcon(new ImageIcon("res/unnamed.png"));
 		
 		
@@ -83,7 +88,8 @@ public class Window implements ActionListener, ChangeListener{
 		panel.add(playAnimation);
 		
 		JButton btnClear = new JButton("Clear");
-		btnClear.setBackground(Color.LIGHT_GRAY);
+		btnClear.setForeground(Color.WHITE);
+		btnClear.setBackground(Color.DARK_GRAY);
 		btnClear.addActionListener(this);
 		
 		btnClear.setBounds(195, 27, 108, 23);
@@ -95,7 +101,8 @@ public class Window implements ActionListener, ChangeListener{
 		
 		String [] sortOptions = {"Select...", "Selection Sort", "Insertion Sort", "Bubble Sort", "Merge Sort"};
 		comboBox = new JComboBox(sortOptions);
-		comboBox.setBackground(Color.LIGHT_GRAY);
+		comboBox.setForeground(Color.WHITE);
+		comboBox.setBackground(Color.DARK_GRAY);
 		comboBox.addActionListener(this);
 		comboBox.setBounds(313, 27, 108, 23);
 		panel.add(comboBox);
@@ -112,21 +119,24 @@ public class Window implements ActionListener, ChangeListener{
 		
 		slider.addChangeListener(this);
 		slider.setBorder(null);
-		slider.setBackground(UIManager.getColor("Button.background"));
+		slider.setBackground(Color.BLACK);
 		slider.setBounds(526, 18, 108, 42);
 		panel.add(slider);
 		
 		JLabel lblNewLabel_2 = new JLabel("Animation Speed");
+		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2.setBounds(431, 28, 134, 19);
 		panel.add(lblNewLabel_2);
 		
 		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_1.setBounds(650, 175, 185, 23);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_3 = new JLabel("Wavelength Sorting Visualizer");
+		lblNewLabel_3.setForeground(Color.WHITE);
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_3.setBounds(22, 6, 245, 23);
 		frame.getContentPane().add(lblNewLabel_3);
@@ -147,7 +157,8 @@ public class Window implements ActionListener, ChangeListener{
 		
 		 
 		 
-			JPanel panel_1 = d1;
+			JPanel panel_1 =  d1;
+			
 			segmentPanels[Cycle.numberOfCycles] = panel_1; // store panels for future removal
 			
 			

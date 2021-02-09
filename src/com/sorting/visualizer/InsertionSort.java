@@ -78,7 +78,7 @@ public class InsertionSort {
                 
         		for(int k = 0; k < i-1; k++) {
         			if(Cycle.cycles[k].getColor() != Color.green) {
-            			Cycle.cycles[k].setColor(Color.black);
+            			Cycle.cycles[k].setColor(Color.white);
             			Cycle.cycles[k].repaint();        				
         			}        			
         		}

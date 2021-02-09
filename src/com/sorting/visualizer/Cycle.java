@@ -13,7 +13,7 @@ import javax.swing.Timer;
 @SuppressWarnings("serial")
 public class Cycle extends JPanel{
 	
-	public Color color = Color.BLACK;
+	public Color color = Color.white;
 	public static int numberOfCycles = 0;
 	public static Cycle [] cycles = new Cycle[13]; // *Contains all cycles/segments; data stored here is sorted*
 	public static int totalWaveLength = 0;
@@ -22,6 +22,7 @@ public class Cycle extends JPanel{
     private int[] pts; 
      
     public Cycle() {
+    	this.setBackground(Color.black);
         points = 400; 
         sines = new double[points];
         for (int i = 0; i < points; i++) {
@@ -29,7 +30,7 @@ public class Cycle extends JPanel{
             sines[i] = Math.sin(radians);
         }
         Random r = new Random();
-        cycleWaveLength = r.nextInt(40) + 51 ;
+        cycleWaveLength = r.nextInt(50) + 51;
         totalWaveLength += cycleWaveLength;
     }
 
@@ -57,7 +58,7 @@ public class Cycle extends JPanel{
         g.drawLine(cycleWaveLength/2, maxHeight/4 + 15, cycleWaveLength/2, ( (maxHeight / 4) * 3 ) - 15);
         
         int spacingFactor = cycleWaveLength/7;
-        g.setColor(new Color(240,240,240));
+        g.setColor(new Color(0,0,0));
         g.drawLine(0,maxHeight/2,spacingFactor,maxHeight/2);
         g.drawLine(spacingFactor * 2,maxHeight/2, spacingFactor * 3,maxHeight/2);
         g.drawLine(spacingFactor * 4,maxHeight/2, spacingFactor * 5,maxHeight/2);
