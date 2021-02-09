@@ -13,7 +13,7 @@ public class SortTest {
 		window = new Window();
 		int totalWaveLengthCount = 0;
 		for(int i = 0; i < 100000; i++) { //Simulate adding a wave to the frame
-			if(totalWaveLengthCount <= 775) {
+			if(totalWaveLengthCount <= 845) {
 				totalWaveLengthCount += window.makeSegment();
 			}else break;
 		}
